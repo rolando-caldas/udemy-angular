@@ -17,8 +17,8 @@ export class HeroeItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToCard(id:number) {
-    this.router.navigate(['/heroe', id]);
+  goToCard() {
+    this.router.navigate(['/heroe', this.id]);
   }
 
 }
