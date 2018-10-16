@@ -1,0 +1,11 @@
+version: '3'
+services:
+  angular:
+    image: angular
+    build:
+      context: .
+      dockerfile: angular/Dockerfile
+    volumes:
+      - ../application/:/application
+    ports:
+      - "4200:4200"
