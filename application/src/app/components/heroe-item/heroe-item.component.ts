@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Heroe} from "../../services/heroe.interface";
 import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-heroe-item',
@@ -12,12 +13,17 @@ export class HeroeItemComponent implements OnInit {
   @Input() heroe:Heroe;
   @Input() id:number;
 
-  constructor(private router:Router) { }
+  @Output() heroeSelected:EventEmitter<number>
+
+  constructor(private router:Router) {
+    this.heroeSelected = new EventEmitter();
+  }
 
   ngOnInit() {
   }
 
   goToCard() {
+    this.heroeSelected.emit(this.id);
     this.router.navigate(['/heroe', this.id]);
   }
 

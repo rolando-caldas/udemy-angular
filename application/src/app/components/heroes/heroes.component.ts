@@ -21,4 +21,7 @@ export class HeroesComponent implements OnInit {
     this.heroes = this.heroesService.getHeroes();
   }
 
+  logger(item) {
+    console.log(item);
+  }
 }
